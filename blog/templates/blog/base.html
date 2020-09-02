@@ -48,6 +48,19 @@
     <main role="main" class="container">
         <div class="row">
             <div class="col-md-8">
+
+                <!--Error message-->
+
+                {% if errors %} {% for error in errors %}
+                <div class="alert alert-danger" role="alert">
+                    <p class="mb-3">{{ error.message }}</p>
+                    {% if error.debug %}
+                    <pre class="alert-pre border bg-light p-2"><code>{{ error.debug }}</code></pre> {% endif %}
+                </div>
+                {% endfor %} {% endif %}
+
+                <!--End of error messages-->
+
                 {% if messages %} {% for message in messages %}
                 <div class="alert alert-{{ message.tags }}">
                     {{ message }}

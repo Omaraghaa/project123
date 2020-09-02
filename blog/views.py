@@ -117,5 +117,5 @@ def callback(request):
   token = get_token_from_code(request.get_full_path(), expected_state)
   # Temporary! Save the response in an error so it's displayed
   request.session['flash_error'] = { 'message': 'Token retrieved', 'debug': format(token) }
-  return HttpResponseRedirect(reverse('blog/home.html'))
+  return HttpResponseRedirect(reverse('home'))
 
