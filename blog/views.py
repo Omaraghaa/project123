@@ -9,6 +9,10 @@ from django.views.generic import (
     DeleteView
 )
 from .models import Post
+from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+#from teams_api.auth_helper import get_sign_in_url, get_token_from_code
 
 
 def home(request):
@@ -78,3 +82,6 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
+
+#MSTeams API integration.
+
