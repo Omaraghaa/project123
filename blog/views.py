@@ -119,3 +119,9 @@ def callback(request):
   request.session['flash_error'] = { 'message': 'Token retrieved', 'debug': format(token) }
   return HttpResponseRedirect(reverse('home'))
 
+#chat box
+def chat(request):
+  context = initialize_context(request)
+  return render(request, 'blog/chat.html', context)
+
+
