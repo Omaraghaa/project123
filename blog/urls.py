@@ -19,4 +19,5 @@ urlpatterns = [
     path('about/', views.about, name='blog-about'),
     path('msteams/', views.sign_in, name='msteams'),
     path('callback/', views.callback, name='callback'),
+
 ]
