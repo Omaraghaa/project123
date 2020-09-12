@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
-from teams_api import views as teams_views
+#from teams_api import views as teams_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
