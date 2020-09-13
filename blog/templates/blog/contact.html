@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"   >
+	<link rel ="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+  <link rel ="stylesheet" type="text/css" href="{% static 'css/skel.css' %}"/>
+  <link rel ="stylesheet" type="text/css" href="{% static 'css/style-xlarge.css' %}"/>
+  <script src="{% static 'css/jquery.min.js' %}"></script>
+    <script src="{% static 'css/skel.min.js' %}"></script>
+  <script src="{% static 'css/skel-layers.min.js' %}"></script>
+   <script src="{% static 'css/init.js' %}"></script>
+
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div id="logo"><img src="{% static "images/logo.png"%}" width="200" height="80"  /></div>
+				<nav id="nav">
+					<ul>
+							<li><a href="{% url 'blog-home' %}">Home</a></li>
+						<li><a href="{% url 'blog-about' %}">About</a></li>
+
+						<li> <a href="{% url 'index' %}" <i class="fa fa-search" aria-hidden="true"></i>API search</a></li>
+						<li> <a href="{% url 'login' %}" class="button special">Login</a></li>
+					</ul>
+				</nav>
+			</header>
+
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+
+					<header class="major">
+						<h2>ContactUS</h2>
+						<p>email: </p>
+					</header>
+
+					<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+					<h1> name ....</h1>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<section class="links">
+						<div class="row">
+							<section class="12u$(small)">
+								<h3>Product</h3>
+								<ul class="unstyled">
+									<li><a href="#">Overview</a></li>
+									<li><a href="#">Notebook</a></li>
+									<li><a href="#">Inventory</a></li>
+									<li><a href="#">Workspaces</a></li>
+									<li><a href="#">Data Seurity</a></li>
+								</ul>
+							</section>
+							<section class=" 12u$(small)">
+								<h3>Solutions</h3>
+								<ul class="unstyled">
+									<li><a href="#">Editions & Pricing</a></li>
+									<li><a href="#">Labstep for Academia</a></li>
+									<li><a href="#">Labstep for Industry</a></li>
+									<li><a href="#">Labstep for Institutions</a></li>
+
+								</ul>
+							</section>
+							<section class=" 12u$(small)">
+								<h3>Case Studies</h3>
+								<ul class="unstyled">
+									<li><a href="#">Meet our users</a></li>
+									<li><a href="#">Institute deployment</a></li>
+
+								</ul>
+							</section>
+							<section class="12u$(small)">
+								<h3>Explore</h3>
+								<ul class="unstyled">
+									<li><a href="#">For researchers</a></li>
+									<li><a href="#">For group leaders</a></li>
+									<li><a href="#">For IT & services</a></li>
+									<li><a href="#">For lab managers</a></li>
+									<li><a href="#">For industry scientists</a></li>
+								</ul>
+							</section>
+							<section class="12u$(small)">
+								<h3>Company</h3>
+								<ul class="unstyled">
+									<li><a href="#">Contact Us</a></li>
+									<li><a href="#">Our story</a></li>
+									<li><a href="#">Meet the team</a></li>
+									<li><a href="#">Ambassodors</a></li>
+
+								</ul>
+							</section>
+							<section class=" 12u$(small)">
+								<h3>Support</h3>
+								<ul class="unstyled">
+									<li><a href="#">Help Center</a></li>
+									<li><a href="#">For group leaders</a></li>
+									<li><a href="#">For IT & services</a></li>
+									<li><a href="#">For lab managers</a></li>
+									<li><a href="#">For industry scientists</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+					<div class="row">
+						<div class="8u 12u$(medium)">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li>
+
+							</ul>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<ul class="icons">
+								<li>
+									<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+	</body>
+</html>

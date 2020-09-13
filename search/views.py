@@ -28,6 +28,7 @@ def index(request):
 
         clinical_data = clinical_values['FullStudies']
 
+
     context = {
         'clinical_data': clinical_data
     }
