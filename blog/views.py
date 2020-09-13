@@ -83,6 +83,12 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
+def contact(request):
+    return render(request, 'blog/contact.html', {'title': 'Contact'})
+
+def xhome(request):
+    return render(request, 'blog/xhome.html', {'title': 'xhome'})
+
 #MSTeams API integration.
 def msteams(request):
   context = initialize_context(request)
