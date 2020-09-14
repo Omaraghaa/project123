@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'teams_api',
-    'search.apps.SearchConfig'
+    'search.apps.SearchConfig',
+    'FDA'
 ]
 
 MIDDLEWARE = [

@@ -34,7 +34,8 @@ urlpatterns = [
     path('msteams_login/', teams_api.home , name='msteams_login'),
     #path('blog_home/', blog_views.sign_out, name='signout'),
     path('', include('teams_api.urls')),
-    path('search',include('search.urls'))
+    path('search',include('search.urls')),
+    path('FDA',include('FDA.urls'))
     
 ]
 
