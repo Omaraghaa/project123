@@ -51,6 +51,26 @@ def callback(request):
 
   return HttpResponseRedirect(reverse('home'))
 
+def sign_out(request):
+  # Clear out the user and token
+  remove_user_and_token(request)
+
+  return HttpResponseRedirect(reverse('home'))
+
+def calendar(request):
+  context = initialize_context(request)
+
+  token = get_token(request)
+
+  events = get_calendar_events(token)
+
+  context['errors'] = [
+    { 'message': 'Events', 'debug': format(events)}
+  ]
+
+  return render(request, 'tutorial/home.html', context)
+
+
 
 
 '''
