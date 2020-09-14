@@ -68,7 +68,7 @@ def calendar(request):
     { 'message': 'Events', 'debug': format(events)}
   ]
 
-  return render(request, 'tutorial/home.html', context)
+  return render(request, 'teams/home.html', context)
 
 
 
