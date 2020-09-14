@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
 #from teams_api import views as teams_views
+from teams_api import views as teams_api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,8 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('', include('blog.urls')),
     #path('msteams/', teams_views.msteams, name='msteams'),
+    path('msteams_login/', teams_api.home , name='msteams_login'),
+    path('', include('teams_api.urls')),
     path('search',include('search.urls'))
 ]
 
