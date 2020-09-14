@@ -13,6 +13,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from teams_api.auth_helper import get_sign_in_url, get_token_from_code
+from teams_api.auth_helper import remove_user_and_token
 
 
 def home(request):
@@ -88,7 +89,7 @@ def contact(request):
 
 def xhome(request):
     return render(request, 'blog/xhome.html', {'title': 'xhome'})
-
+'''
 #MSTeams API integration.
 def msteams(request):
   context = initialize_context(request)
@@ -124,10 +125,21 @@ def callback(request):
   # Temporary! Save the response in an error so it's displayed
   request.session['flash_error'] = { 'message': 'Token retrieved', 'debug': format(token) }
   return HttpResponseRedirect(reverse('home'))
-
+'''
 #chat box
 def chat(request):
   context = initialize_context(request)
   return render(request, 'blog/chat.html', context)
 
+def initialize_context(request):
+  context = {}
+  # Check for any errors in the session
+  error = request.session.pop('flash_error', None)
 
+  if error != None:
+    context['errors'] = []
+    context['errors'].append(error)
+
+  # Check for user in the session
+  context['user'] = request.session.get('user', {'is_authenticated': False})
+  return context

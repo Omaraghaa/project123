@@ -55,7 +55,8 @@ def sign_out(request):
   # Clear out the user and token
   remove_user_and_token(request)
 
-  return HttpResponseRedirect(reverse('home'))
+  return HttpResponse('<script type="text/javascript">window.close();</script>')
+
 
 def calendar(request):
   context = initialize_context(request)

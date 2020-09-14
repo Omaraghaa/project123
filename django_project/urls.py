@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from users import views as user_views
 #from teams_api import views as teams_views
 from teams_api import views as teams_api
+#from blog import views as blog_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,8 +32,10 @@ urlpatterns = [
     path('', include('blog.urls')),
     #path('msteams/', teams_views.msteams, name='msteams'),
     path('msteams_login/', teams_api.home , name='msteams_login'),
+    #path('blog_home/', blog_views.sign_out, name='signout'),
     path('', include('teams_api.urls')),
     path('search',include('search.urls'))
+    
 ]
 
 
