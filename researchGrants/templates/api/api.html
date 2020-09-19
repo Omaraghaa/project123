@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+        body {
+             font-family: Arial;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        
+        th, td {
+          padding: 10px;
+        }
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+        }
+    </style>
+    <title>Research Grants API</title>
+    <body>
+    {% if record %}
+    <table class="table is-fullwidth is-striped is-bordered">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>NHMRC</th>
+            <th>Funded By</th>
+            <th>Principal Investigator</th>
+            <th>Participants</th>
+            <th>Managed By</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        {% for rec in record %}
+        <tr>
+            <th>{{ rec.title }}</th>
+            <td>{{ rec.description }}</td>
+            <td>{{ rec.identifier_type.nhmrc }}</td>
+            <td>{{ rec.relations.isFundedBy }}</td>
+            <td>{{ rec.relations.isPrincipalInvestigator }}</td>
+            <td>{{ rec.relations.isParticipantIn}}</td>
+            <td>{{ rec.relations.isManagedBy}}</td>
+           
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <form method="POST" style="margin:auto;max-width:300px">
+        {% csrf_token %}
+        <h2>Research Grants : Search By ID/NHMRC</h2>
+        <input type="text" name="api" placeholder="Type in ID">
+        <button type="submit" >Search</button> 
+    </form>
+    {% endif %}    
+    </body>
+</head>
+  
