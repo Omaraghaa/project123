@@ -11,4 +11,5 @@ urlpatterns = [
   path('home', views.home, name='home'),
   path('callback', views.callback, name='callback'),
   path('calendar', views.calendar, name='calendar'),
+  path('channels',views.channels, name='channels')
 ]

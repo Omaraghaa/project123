@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.urls import reverse
 from teams_api.auth_helper import get_sign_in_url, get_token_from_code, store_token, store_user, remove_user_and_token, get_token
-from teams_api.graph_helper import get_user, get_calendar_events
+from teams_api.graph_helper import get_user, get_calendar_events, get_channels
 import dateutil.parser
 
 # Create your views here.
@@ -74,3 +74,15 @@ def calendar(request):
     context['events'] = events['value']
 
   return render(request, 'teams/calendar.html', context)
+
+def channels(request):
+  context = initialize_context(request)
+
+  token = get_token(request)
+
+  events = get_channels(token)
+
+  if events:
+    context['events'] = events['value']
+
+  return render(request, 'teams/teams.html', context)

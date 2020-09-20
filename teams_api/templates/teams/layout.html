@@ -25,6 +25,10 @@
                     <li class="nav-item" data-turbolinks="false">
                         <a class="nav-link{% if request.resolver_match.view_name == 'calendar' %} active{% endif %}" href="{% url 'calendar' %}">Calendar</a>
                     </li>
+                    {% endif %}{% if user1.is_authenticated %}
+                    <li class="nav-item" data-turbolinks="false">
+                        <a class="nav-link{% if request.resolver_match.view_name == 'channels' %} active{% endif %}" href="{% url 'channels' %}">Teams</a>
+                    </li>
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav justify-content-end">

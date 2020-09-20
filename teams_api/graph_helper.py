@@ -23,3 +23,16 @@ def get_calendar_events(token):
   events = graph_client.get('{0}/me/events'.format(graph_url), params=query_params)
   # Return the JSON result
   return events.json()
+
+def get_channels(token):
+  graph_client = OAuth2Session(token=token)
+  #print("graph_client:",graph_client{0})
+  # Configure query parameters to
+  # modify the results
+  query_params = {
+    '$select': 'displayName,description'
+  }
+  #print(graph_client.get('https://graph.microsoft.com/v1.0/me/joinedTeams'))
+  teams = graph_client.get('https://graph.microsoft.com/v1.0/me/joinedTeams', params=query_params)
+  #print(teams.json())
+  return teams.json()
