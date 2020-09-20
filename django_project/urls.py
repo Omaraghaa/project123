@@ -35,7 +35,8 @@ urlpatterns = [
     #path('blog_home/', blog_views.sign_out, name='signout'),
     path('', include('teams_api.urls')),
     path('search',include('search.urls')),
-    path('FDA',include('FDA.urls'))
+    path('FDA',include('FDA.urls')),
+    path('researchGrants',include('researchGrants.urls'))
     
 ]
 

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'teams_api',
     'search.apps.SearchConfig',
-    'FDA'
+    'FDA',
+    'researchGrants'
 ]
 
 MIDDLEWARE = [
