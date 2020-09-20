@@ -39,7 +39,7 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="{% url 'blog-home' %}">Home</a></li>
-						<li><a href="{% url 'blog-about' %}">About</a></li>
+
 						<li><a href="{% url 'blog-contact' %}">Contact us</a></li>
 						<li> <a href="{% url 'index' %}" <i class="fa fa-search" aria-hidden="true"></i>API search</a></li>
 						<li> <a href="{% url 'login' %}" class="button special">Login</a></li>
@@ -53,8 +53,8 @@
 				<h2>Save time and Streamline Biotech R&D  </h2>
 				<p style="text-align:justify">Accelerate business proposals in biotech. Coordinate research, business development, legal, and analytics in a secure platform</p>
 				<ul class="actions">
-					<li><a href="#" class="button big">Developers</a></li>
-						<li><a href="#" class="button big">Researchers</a></li>
+					<li><a href="{% url 'login' %}" class="button big">Developers</a></li>
+						<li><a href="{% url 'login' %}" class="button big">Researchers</a></li>
 
 				</ul>
 			</section>
