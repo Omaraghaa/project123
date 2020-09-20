@@ -7,24 +7,8 @@
     <title>Search API</title>
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="{% static 'search/album.css' %}" rel="stylesheet">
+  
+    
   </head>
   <body>
 
@@ -47,22 +31,22 @@
     </div>
   </section>
 
-  <div class="album py-5 bg-light">
+  <div>
+  {%if not clinical_data.empty%}
     <div class="container">
       <div class="row">
-        {% if clinical_data %}
-        {% for c_data in clinical_data %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+      
+        <div >
+          <div >
 
-              <p class="card-text">{{ c_data }}</p>
+              <p> {{clinical_data |safe}} </p>
 
           </div>
         </div>
-        {% endfor %}
-        {% endif %}
+  
       </div>
     </div>
+  {%endif%}
   </div>
 
 </main>

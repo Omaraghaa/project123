@@ -8,7 +8,7 @@ from isodate import parse_duration
 from django.conf import settings
 from django.shortcuts import render, redirect
 
-def index(request):
+def index1(request):
     record = {}
     context = {}
     if request.method == 'POST':

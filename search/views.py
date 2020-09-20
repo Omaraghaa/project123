@@ -7,10 +7,13 @@ from isodate import parse_duration
 
 from django.conf import settings
 from django.shortcuts import render, redirect
+import pandas as pd
+from pandas.io.json import json_normalize
+pd.options.display.max_colwidth = 100000
 
 
 def index(request):
-    clinical_data = []
+    c = pd.DataFrame(columns = ['q'])
     if request.method == 'POST':
         search_query = request.POST['search']
 
@@ -28,9 +31,12 @@ def index(request):
 
         clinical_data = clinical_values['FullStudies']
 
-
+        c = pd.DataFrame.from_dict(json_normalize(clinical_data), orient='columns')
+        c = c.loc[:,["Rank","Study.ProtocolSection.IdentificationModule.NCTId", "Study.ProtocolSection.IdentificationModule.Organization.OrgFullName", "Study.ProtocolSection.IdentificationModule.OfficialTitle","Study.ProtocolSection.StatusModule.StatusVerifiedDate"]]
+        c.rename(columns={"Study.ProtocolSection.IdentificationModule.NCTId": "NCTId", "Study.ProtocolSection.IdentificationModule.Organization.OrgFullName": "OrgFullName", "Study.ProtocolSection.IdentificationModule.OfficialTitle":"OfficialTitle","Study.ProtocolSection.StatusModule.StatusVerifiedDate":"StatusVerifiedDate"}, inplace=True)
+        c = c.to_html(classes='data', index=False)
     context = {
-        'clinical_data': clinical_data
+        'clinical_data': c
     }
 
     return render(request, 'search/index.html', context)
