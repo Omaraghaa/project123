@@ -3,7 +3,7 @@
   <head>
     <style>
         body {
-             font-family: courier;
+             font-family: Arial;
              text-align: center;
 
         }
@@ -38,12 +38,37 @@
         * {
             box-sizing: border-box;
         }
+        table {
+           border-collapse: collapse;
+        }
         table, th, td {
             border: 1px solid black;
+            text-align: justify;
         }
-        
+        table {
+            width: 100%;
+        }
+
+        th {
+          height: 50px;
+        }
+        th {
+          text-align: left;
+        }
+        td {
+          height: 50px;
+          vertical-align: bottom;
+        }
+        tr:hover {background-color: #f5f5f5;}
+        th {
+          background-color: #008080;
+          color: white;
+        }
         th, td {
-          padding: 10px;
+          padding: 8px;
+        }
+        th {
+           text-transform: uppercase;
         }
         form.example input[type=text] {
             padding: 10px;
@@ -69,6 +94,7 @@
     <body>
     {% if record %}
     <table class="table is-fullwidth is-striped is-bordered">
+        <h1 style="text-align:center">Research Grant API</h1>
         <thead>
         <tr>
             <th>Title</th>
