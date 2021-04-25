@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'teams_api',
     'search.apps.SearchConfig',
     'FDA',
+    'tgasearch'
    # 'researchGrants'
 ]
 
