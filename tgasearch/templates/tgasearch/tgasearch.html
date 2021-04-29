@@ -10,15 +10,15 @@
         .header {
         padding: 60px;
         text-align: center;
-        background: #3e3f3f;
+        background: #9ae0e0;
         color: white;
         font-size: 30px;
         }
 
         .button {
-        background-color:#66CDAA;
+        background-color:#afb5b8;
         border: none;
-        color: white;
+        color: rgb(5, 5, 5);
         padding: 15px 32px;
         text-align: center;
         text-decoration: none;
@@ -42,7 +42,7 @@
            border-collapse: collapse;
         }
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid rgb(66, 62, 62);
             text-align: justify;
         }
         table {
@@ -59,10 +59,10 @@
           height: 50px;
           vertical-align: bottom;
         }
-        tr:hover {background-color: #e6dd8d;}
+        tr:hover {background-color: #f1edc5;}
         th {
-          background-color: #08c2c2;
-          color: white;
+          background-color: #e4edf5;
+          color: rgb(65, 62, 62);
         }
         th, td {
           padding: 8px;
@@ -109,10 +109,10 @@
     </table>
     {% else %}
     <form method="POST">
-        <body style="background-color:#008B8B;">
+        <body style="background-color:#acb2b6;">
         {% csrf_token %}
         <div class="header">
-        <h2>TGA Search</h2>
+        <h1 style="color:rgb(20, 20, 20);">TGA Search </h1>
         <input type="text" name="tga" placeholder="Type in search term">
         <button class="button" type="submit" >Search</button>
         </div>
