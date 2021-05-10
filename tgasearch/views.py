@@ -23,10 +23,12 @@ def index2(request):
         #res=requests.get(request_url)
         soup =BeautifulSoup(res,'html.parser')
         sresults=soup.findAll('ul', attrs={'class':'attributes'})
-        print (len(sresults))
+        lenrst= len(sresults)
         r=[]
         for i in sresults:
           r.append(i.text)
+        if lenrst==0:
+            r=["No results found"]
         context = {
 
             'record' : r
