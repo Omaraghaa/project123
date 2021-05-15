@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, UserProfileForm
 from linkedin import linkedin
 from urllib import parse
 import requests
@@ -11,14 +11,24 @@ from django.http import HttpResponse, HttpResponseRedirect
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
+        profile_form = UserProfileForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
+            user = form.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+
+            profile.save()
+            
             username = form.cleaned_data.get('username')
+            number=form.cleaned_data.get('number')
+            institute=form.cleaned_data.get('institute')
             messages.success(request, f'Your account has been created! You are now able to log in')
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+        profile_form = UserProfileForm()
+        # context = {'profile_form' : profile_form}
+    return render(request, 'users/register.html', {'form': form,'profile_form' : profile_form})
 
 
 def linkedin_auth(request):
