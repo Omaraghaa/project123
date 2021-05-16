@@ -40,8 +40,8 @@ urlpatterns = [
     path('researchGrants',include('researchGrants.urls')),
     path('get_linkedin_auth/', user_views.linkedin_auth, name='get_linkedin_auth'),
     path('linkedin_usr_info_call/', user_views.linkedin_usr_info, name='linkedin_usr_info_call'),
-    path('tgasearch',include('tgasearch.urls'))
-    
+    path('tgasearch',include('tgasearch.urls')),
+    path('ema',include('ema.urls'))
 ]
 
 
