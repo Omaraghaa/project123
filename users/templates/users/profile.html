@@ -1,6 +1,22 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <style>
+  body,div,input,textarea{
+
+font-family: 'Open Sans', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,a,ul,li,p,b{
+font-family: 'Montserrat', sans-serif;
+}
+  </style>
+</head>
+<body>
     <div class="content-section">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
@@ -12,13 +28,13 @@
       <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           <fieldset class="form-group">
-              <legend class="border-bottom mb-4">Profile Info</legend>
+              <legend class="border-bottom mb-4"><b>Profile Info</b></legend>
               {{ u_form|crispy }}
               {{ p_form|crispy }}
           </fieldset>
           <div class="form-group">
-              <button class="btn btn-outline-info" type="submit">Update</button>
+              <button class="btn btn-outline-info" type="submit"><b>Update</b></button>
           </div>
       </form>
-    </div>
+    </div></body>
 {% endblock content %}

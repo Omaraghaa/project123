@@ -4,13 +4,41 @@
 <head>
     <title>MEDICALSAAS</title>
 
+
+
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"> {% load static %}
     <link rel="stylesheet" href="{% static 'teams_api/app.css' %}">
+
+
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+ <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+
+    <style>
+        body,p,div,input,textarea,a{
+	
+	font-family: 'Open Sans', sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6{
+	font-family: 'Montserrat', sans-serif;
+  }
+
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+   <!-- "navbar navbar-expand-md navbar-dark bg-steel fixed-top"
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
             <a href="{% url 'home' %}" class="navbar-brand">Medical SAAS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

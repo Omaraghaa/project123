@@ -2,10 +2,19 @@
 @import url(font-awesome.min.css);
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
 @import url(http://fonts.googleapis.com/css?family=Opensans:700,400);
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap);
 
 
 /* Basic */
+body,p,div,input,textarea,a{
+	
+	font-family: 'Open Sans', sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6{
+	font-family: 'Montserrat', sans-serif;
+  }
 
 	body {
 		background: "#";
