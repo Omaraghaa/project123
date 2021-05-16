@@ -15,3 +15,17 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    telephone = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    message = models.TextField()
+
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
