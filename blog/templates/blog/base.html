@@ -43,17 +43,30 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-
                         <a class="nav-item nav-link" href="{% url 'blog-contact' %}">Contact Us</a>
                         <a class="nav-item nav-link" href="{% url 'blog-xhome' %}">Main</a>
-                        <a class="nav-item nav-link" href="{% url 'index' %}">API search</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" >
+                                Search
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item nav-item nav-link" style="color: black;" href="{% url 'index' %}">API search</a>
+                                <a class="dropdown-item nav-item nav-link" style="color: black;" href="{% url 'index1' %}">Research Grants</a>
+                                <a class="dropdown-item nav-item nav-link" style="color: black;" href="{% url 'index2' %}">TGA Search</a>
+                              </div>
+                        </li>
+<!--
+    <a class="nav-item nav-link" href="{% url 'index' %}">API search</a>
                         <a class="nav-item nav-link" href="{% url 'index1' %}">Research Grants</a>
                         <a class="nav-item nav-link" href="{% url 'index2' %}">TGA Search</a>
+-->
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                        <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                         <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                         <a class="nav-item nav-link" href="{% url 'msteams_login' %}" target="_blank">MsTeams</a>
 
