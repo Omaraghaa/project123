@@ -90,6 +90,8 @@ def contact(request):
 
 def xhome(request):
     return render(request, 'blog/xhome.html', {'title': 'xhome'})
+def aboutus(request):
+    return render(request, 'blog/about.html', {'title': 'aboutus'})
 '''
 #MSTeams API integration.
 def msteams(request):
