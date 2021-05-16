@@ -14,6 +14,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from teams_api.auth_helper import get_sign_in_url, get_token_from_code
 from teams_api.auth_helper import remove_user_and_token
+from .form import ContactForm
 
 
 def home(request):
@@ -143,3 +144,18 @@ def initialize_context(request):
   # Check for user in the session
   context['user'] = request.session.get('user', {'is_authenticated': False})
   return context
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("done")
+            return render(request, 'blog/contact.html', {'title': 'Contact', 'message':"Data Submitted Successfully"})
+        else:
+            return render(request, 'blog/contact.html', {'title': 'Contact', 'message':"Error Submitting Data"})
+
+
+    return render(request, 'blog/contact.html', {'title': 'Contact'})
+
+
