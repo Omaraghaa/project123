@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'search.apps.SearchConfig',
     'FDA',
     'tgasearch',
-    'researchGrants'
+    'researchGrants',
+    'ema'
 ]
 
 MIDDLEWARE = [
