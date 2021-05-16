@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+        body {
+             font-family: Arial;
+             text-align: center;
+
+        }
+        .header {
+        padding: 215px;
+        text-align: center;
+        background: #ffffff;
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        }
+
+        .button {
+        background-color:#c5ced3;
+        border: none;
+        color: rgb(5, 5, 5);
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+        input,
+        input::-webkit-input-placeholder {
+        font-size: 15px;
+        line-height: 3;
+        width: 200px;
+        padding: 0 20px;
+         }
+
+        * {
+            box-sizing: border-box;
+        }
+        table {
+           border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid rgb(230, 222, 222);
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+        }
+
+        th {
+          height: 50px;
+        }
+        th {
+          text-align: left;
+        }
+        td {
+          height: 50px;
+          vertical-align: bottom;
+        }
+        tr:hover {background-color: #f1edc5;}
+        th {
+          background-color: #d2e6f8;
+          color: rgb(65, 62, 62);
+        }
+        th, td {
+          padding: 8px;
+        }
+        th {
+           text-transform: uppercase;
+        }
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid rgb(186, 223, 226);
+            float: left;
+            width: 80%;
+            background: #dacaca;
+        }
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+        }
+    </style>
+    <title>EMA Medicine Search</title>
+    <body>
+    {% if record %}
+    <table class="table is-fullwidth is-striped is-bordered">
+        <h1>EMA Medicine Search</h1>
+        <thead>
+        <tr>
+        </tr>
+        </thead>
+        <tbody>
+        {% for rec in record %}
+        <tr>
+            <th>{{ rec }}</th>           
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <form method="POST">
+        <body style="background-color:#c6e4e7;">
+        {% csrf_token %}
+        <div class="header">
+        <img src="https://www.ema.europa.eu/sites/default/themes/ema/framework/images/logo_ema.svg" style="position:fixed; right:370px; bottom:220px; width:630px; height:500px; border:none;" alt="Trulli" width="650" height="300">
+        <h3 style="color:rgb(34, 7, 85);"> Medicines Search</h3>
+        <input type="text" name="ema" placeholder="Type in search term">
+        <button class="button" type="submit" >Search</button>
+        </div>
+        </body>
+    </form>
+    {% endif %}    
+    </body>
+</head>
