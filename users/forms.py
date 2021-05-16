@@ -8,28 +8,32 @@ from .models import UserProfile
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    phone_number = forms.CharField(max_length=30)
+    phone_number = forms.IntegerField()
     institute = forms.CharField(max_length=30)
     degree = forms.CharField()
-    publications = forms.Field()
-    funding = forms.CharField()
+    Number_of_publications = forms.IntegerField()
+    funding = forms.IntegerField()
     type_of_funding = forms.CharField()
-    patent = forms.CharField()
+    Number_of_patents = forms.IntegerField()
     license = forms.CharField()
-
+    Project_title = forms.CharField()
+    Project_details = forms.CharField( widget=forms.Textarea)
     class Meta:
         model = User
         fields = [ 'username',
                    'email',
+                   'password1', 
+                   'password2',
                    'phone_number',
                    'institute',
                    'degree',
-                   'publications',
+                   'Number_of_publications',
+                   'Number_of_patents',
+                   'license',
+                   'Project_title',
+                   'Project_details',
                    'funding',
                    'type_of_funding',
-                   'patent','license',
-                   'password1', 
-                   'password2'
                  ]#'number','institute','degree','publications','funding','type_of_funding','patent','license'
 
 
@@ -53,9 +57,11 @@ class UserProfileForm(forms.ModelForm):
       fields = [ 'phone_number',
                  'institute',
                  'degree',
-                 'publications',
+                 'Number_of_publications',
                  'funding',
                  'type_of_funding',
-                 'patent','license'
+                 'Number_of_patents','license',
+                 'Project_title',
+                   'Project_details'
                 ]
 
