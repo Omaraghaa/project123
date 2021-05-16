@@ -1,0 +1,69 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!--
+    <div class="content-section">
+    {% csrf_token %}
+    <h2>{{ user.username }}</h2>
+    <h2>{{ user.email }}</h2>
+    <p>{{ user.userprofile.phone_number }}</p>
+    <p>{{ user.userprofile.degree }}</p>
+    <p>{{ user.userprofile.institute }}</p>
+    <p>{{ user.userprofile.publications }}</p>
+    <p>{{ user.userprofile.funding }}</p>
+    <p>{{ user.userprofile.type_of_funding }}</p>
+    <p>{{ user.userprofile.patent }}</p>
+    <p>{{ user.userprofile.license }}</p>
+</div>
+-->
+
+<div class="content-section">
+    <div class="media text-right">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+        <p class="text-secondary">{{ user.userprofile.phone_number }}</p>
+        </div>
+    </div>
+</div>
+
+<article class="content-section">
+    <div class="content-body">
+      <div class="article-metadata">
+        <h2 class="article-title"> Education</h2> 
+      </div>
+      <p class="article-content">
+        <b>Degree: </b>{{ user.userprofile.degree }}
+        <b>Institute: </b>{{ user.userprofile.institute }}
+      </p>
+    </div>
+</article>
+
+<article class="content-section">
+    <div class="content-body">
+      <div class="article-metadata">
+        <h2 class="article-title"> Research achievements</h2> 
+      </div>
+      <p class="article-content">
+        <b>Number of publications: </b>{{ user.userprofile.Number_of_publications }}
+        <b>Number of patents: </b>{{ user.userprofile.Number_of_patents }}
+      </p>
+    </div>
+</article>
+
+<article class="content-section">
+  <div class="content-body">
+    <div class="article-metadata">
+      <h2 class="article-title"> Project Details</h2> 
+    </div>
+    <p class="article-content">
+      <b>Project title: </b>{{ user.userprofile.Project_title }}
+      <b>Project details: </b>{{ user.userprofile.Project_details }}
+      <b>Project fundings: </b>{{ user.userprofile.funding }}
+      <b>source of funds: </b>{{ user.userprofile.type_of_funding }}
+    </p>
+  </div>
+</article>
+
+{% endblock content %}

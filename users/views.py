@@ -30,6 +30,10 @@ def register(request):
         # context = {'profile_form' : profile_form}
     return render(request, 'users/register.html', {'form': form,'profile_form' : profile_form})
 
+def dashboard(request):
+    profile_form = UserProfileForm()
+    context = {"profile_form" : profile_form}
+    return render(request, 'users/dashboard.html', context)
 
 def linkedin_auth(request):
     CLIENT_KEY = '861nbok5ugrdlw'
