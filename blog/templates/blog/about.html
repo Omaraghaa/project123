@@ -1,4 +1,130 @@
-{% extends "blog/base.html" %}
-{% block content %}
-    <h1>About Page</h1>
-{% endblock content %}
+
+
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"   >
+	<link rel ="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+  <link rel ="stylesheet" type="text/css" href="{% static 'css/skel.css' %}"/>
+  <link rel ="stylesheet" type="text/css" href="{% static 'css/style-xlarge.css' %}"/>
+  <script src="{% static 'css/jquery.min.js' %}"></script>
+    <script src="{% static 'css/skel.min.js' %}"></script>
+  <script src="{% static 'css/skel-layers.min.js' %}"></script>
+   <script src="{% static 'css/init.js' %}"></script>
+
+
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <style>
+   body,p,div,input,textarea{
+	
+	font-family: 'Open Sans', sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6,a,ul,li{
+	font-family: 'Montserrat', sans-serif;
+  }
+    </style>
+
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+
+				
+				<nav id="nav">
+					<ul>
+						<li><a href="{% url 'blog-home' %}">Home</a></li>
+						<li><a href="{% url 'blog-about' %}">About</a></li>
+
+						<li> <a href="{% url 'index' %}" <i class="fa fa-search" aria-hidden="true"></i> API search</a></li>
+						<li> <a href="{% url 'login' %}" class="button special">Login</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			
+
+		<!-- Main -->
+			 <section id="main" class="wrapper">
+				<div class="container">
+                
+				<div style="text-align:center">
+                   
+				<header class="major">
+				<h2>We Save Time by Supercharging Medical R&D</h2>
+                <br><br><br>
+                <p>Problem – In Drug research lifecycle,  Unnecessary time is wasted in looking for existing drug IP, market results of similar drugs, networking with business developers / investors.
+<br>
+                    Solution – Building a web application where drug researcher can create his/her profile, access IP and market analysis data which is related to his research, demonstrate his research output to possible investors / business developers also present in this web application.
+                    </p>
+				
+				</header>
+            </div>
+        </div>
+				</section>
+	    
+				
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<section class="links">
+						<div class="row">
+							
+							<section class=" 12u$(small)">
+						        <h3>Contact US</h3></br>
+								<ul class="unstyled">
+								<p>Owner: Willian Korim</p>
+									<li><a href="#">Mail Us At : willian.korim@unimelb.edu.au</a></li>
+									
+								</ul>
+							</section>
+							
+							<section class=" 12u$(small)">
+								<h3>Support</h3></br>
+								<ul class="unstyled">
+									<li><a href="#">Help Center</a></li>
+									<li><a href="#">For group leaders</a></li>
+									<li><a href="#">For IT & services</a></li>
+									<li><a href="#">For lab managers</a></li>
+									<li><a href="#">For industry scientists</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+					<div class="row">
+						<div class="8u 12u$(medium)">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li>
+
+							</ul>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<ul class="icons">
+								<li>
+									<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+								</li>
+								<li>
+									<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+			</footer>
+
+    
+						
+
+	</body>
+</html>
