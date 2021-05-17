@@ -13,7 +13,7 @@
    <script src="{% static 'css/init.js' %}"></script>
 
 
-   </head>
+	</head>
 	<body>
 
 		<!-- Header -->
@@ -25,7 +25,7 @@
 						<li><a href="{% url 'blog-home' %}">Home</a></li>
 						<li><a href="{% url 'blog-about' %}">About</a></li>
 
-						<li> <a href="{% url 'index' %}" <i class="fa fa-search" aria-hidden="true"></i> API search</a></li>
+						<li> <a href="{% url 'index' %}" <i class="fa fa-search" aria-hidden="true"></i>API search</a></li>
 						<li> <a href="{% url 'login' %}" class="button special">Login</a></li>
 					</ul>
 				</nav>
@@ -40,27 +40,31 @@
 				<header class="major">
 				<h2>We Save Time by Supercharging Medical R&D</h2>
 				</div>
+
 				
-				<h4 style="color:green; font-size: 21px;">{{message}}</h4>
 				
 				<div class="cont-contactBtn">
 					<div class="cont-flip">
 						<div class="front">
 							<h2>Send Message</h2></br>
+
+							
 						</div>
+
 						<div class="back">
 						<fieldset>
 							<a href="#" class="flip close"></a>
-							<form class="contact-form" action="" method="POST">
-							    {% csrf_token %}
-								<input class="gutter" type="text" pattern="[A-Za-z]{1,50}" size="50" placeholder="Name"></br>
-								<input type="text" placeholder="Company"></br>
-								<input class="gutter" type="text"  pattern="[+ 0-9]{10}" placeholder="Telephone"></br>
-								<input type="text" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="Email"></br>
-								<textarea name="" id="" placeholder="Leave a message"></textarea></br>
-								<input  type="submit" value="Send">
+							<form class="contact-form" method="POST">
+								{% csrf_token %}
+								<input class="gutter" name="name" pattern="[A-Za-z]{1,50}" type="text" size="50" placeholder="Name" required></br>
+								<input type="text" name="company" placeholder="Company" required></br>
+								<input class="gutter" name="telephone"  pattern="[+ 0-9]{10}" type="text" placeholder="Telephone" required></br>
+								<input type="email" name="email"  "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="Email" required></br>
+								<textarea name="message" id="" placeholder="Leave a message" required></textarea></br>
+								<input type="submit" value="Send">
 								</fieldset>
 							</form>
+							<h4 style="color:green; font-size: 21px;">{{message}}</h4>
 						</div>
 					</div>
 				</header>

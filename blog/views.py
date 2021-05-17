@@ -153,7 +153,7 @@ def contact(request):
         if form.is_valid():
             form.save()
             print("done")
-            return render(request, 'blog/contact.html', {'title': 'Contact', 'message':"Data Submitted Successfully"})
+            return render(request, 'blog/contact.html', {'title': 'Contact', 'message':"Thank you For your interest, we will get back to you soon"})
         else:
             return render(request, 'blog/contact.html', {'title': 'Contact', 'message':"Error Submitting Data"})
 
