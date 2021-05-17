@@ -1,10 +1,22 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Search API</title>
+    <!-- Bootstrap core CSS -->
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
+
+
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <style>
        body,p,div,input,textarea{
 	
@@ -16,13 +28,13 @@
         .header {
         padding: 60px;
         text-align: center;
-        background: #9ae0e0;
+        background:#e9ecef;
         color: white;
         font-size: 30px;
         }
 
         .button {
-        background-color:#afb5b8;
+        background-color:#66CDAA;
         border: none;
         color: rgb(5, 5, 5);
         padding: 15px 32px;
@@ -98,6 +110,58 @@
     </style>
     <title>TGA Search</title>
     <body>
+      <header class="site-header">
+          <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+              <div class="container">
+                <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">AccelScience Blog</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+                  <div class="collapse navbar-collapse" id="navbarToggle">
+                      <div class="navbar-nav mr-auto">
+                          <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+                          <a class="nav-item nav-link" href="{% url 'blog-contact' %}">Contact Us</a>
+                          <a class="nav-item nav-link" href="{% url 'blog-about' %}">About Us</a>
+                          <a class="nav-item nav-link" href="{% url 'blog-xhome' %}">Main</a>
+  
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" >
+                                Search
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item nav-item nav-link" style="color: black;" href="{% url 'index' %}">API search</a>
+                                <a class="dropdown-item nav-item nav-link" style="color: black;" href="{% url 'index1' %}">Research Grants</a>
+                                <a class="dropdown-item nav-item nav-link" style="color: black;" href="{% url 'index2' %}">TGA Search</a>
+                                <a class="dropdown-item nav-item nav-link" style="color: black;" href="{% url 'index3' %}">EMA Medicine Search</a>
+                                
+
+                              </div>
+                        </li>
+  
+                      </div>
+                      <!-- Navbar Right Side -->
+                      <div class="navbar-nav">
+                          {% if user.is_authenticated %}
+                          <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                          <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                          <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                          <a class="nav-item nav-link" href="{% url 'msteams_login' %}" target="_blank">MsTeams</a>
+  
+                          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a> {% else %}
+                          <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                          <a class="nav-item nav-link" href="{% url 'register' %}">Register</a> {% endif %}
+                      </div>
+                  </div>
+              </div>
+          </nav>
+      </header>
+     
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
     {% if record %}
     <table class="table is-fullwidth is-striped is-bordered">
         <h1 style="text-align:center">TGA Search</h1>
@@ -115,7 +179,7 @@
     </table>
     {% else %}
     <form method="POST">
-        <body style="background-color:#acb2b6;">
+        <body style="background-color:#ffffff;">
         {% csrf_token %}
         <div class="header">
         <h1 style="color:rgb(20, 20, 20);">TGA Search </h1>
@@ -127,4 +191,5 @@
     {% endif %}    
     </body>
 </head>
-  
+</html>
+  s
