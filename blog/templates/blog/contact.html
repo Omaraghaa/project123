@@ -26,7 +26,11 @@
 						<li><a href="{% url 'blog-about' %}">About</a></li>
 
 						<li> <a href="{% url 'index' %}" <i class="fa fa-search" aria-hidden="true"></i>API search</a></li>
-						<li> <a href="{% url 'login' %}" class="button special">Login</a></li>
+					
+						{% if user.is_authenticated %}
+						<li><a class="button special" href="{% url 'logout' %}">Logout</a></li> {% else %}
+                      <li> <a class="button special" href="{% url 'login' %}">Login</a></li>
+                        <li><a class="button special" href="{% url 'register' %}">Register</a> {% endif %}</li>
 					</ul>
 				</nav>
 			</header>

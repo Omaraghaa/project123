@@ -49,16 +49,21 @@ h2,h3,h1{
 
 
 			<header id="header" >
-				<div id="logo"><img src="{% static "images/logo.png"%}" width="200" height="80"  /></div>
+				<div id="logo"><img src="{% static 'images/logo.png' %}" width="200" height="80"  /></div>
 				<nav id="nav">
 					<ul>
 						<li><a href="{% url 'blog-home' %}">Home</a></li>
 
 						<li><a href="{% url 'blog-contact' %}">Contact us</a></li>
 						<li> <a href="{% url 'index' %}" <i class="fa fa-search" aria-hidden="true"></i>API search</a></li>
-						<li> <a href="{% url 'login' %}" class="button special">Login</a></li>
+						
+						{% if user.is_authenticated %}
+						<li><a class="button special" href="{% url 'logout' %}">Logout</a></li> {% else %}
+                      <li> <a class="button special" href="{% url 'login' %}">Login</a></li>
+                        <li><a class="button special" href="{% url 'register' %}">Register</a> {% endif %}</li>
 
 					</ul>
+					
 				</nav>
 			</header>
 
@@ -189,23 +194,23 @@ h2,h3,h1{
 					</header>
 					<section class="profiles">
 						<div class="row">
-							<section class="3u 6u(medium) 12u$(xsmall) profile">
-								<img src="{% static "images/dea.png"%}" width="120" height="100" />
+						<!---->	<section class="3u 6u(medium) 12u$(xsmall) profile">
+								<img src="{% static 'images/dea.png'%}" width="120" height="100" />
 
 
 							</section>
 							<section class="3u 6u$(medium) 12u$(xsmall) profile">
-								<img src="{% static "images/dea.png"%}"width="120" height="100" />
+								<img src="{% static 'images/vic.png'%}"width="120" height="100" />
 
 
 							</section>
 							<section class="3u 6u(medium) 12u$(xsmall) profile">
-								<img src="{% static "images/melb.png"%}"width="160" height="120" />
+								<img src="{% static 'images/melb.png'%}"width="160" height="120" />
 
 
 							</section>
 							<section class="3u$ 6u$(medium) 12u$(xsmall) profile">
-								<img src="{% static "images/wade.jpg"%}" width="120" height="100"/>
+								<img src="{% static 'images/wade.jpg'%}" width="120" height="100"/>
 
 							</section>
 						</div>

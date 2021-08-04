@@ -40,14 +40,14 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">-->
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-            <a href="{% url 'home' %}" class="navbar-brand">Medical SAAS</a>
+            <a href="{% url 'blog-home' %}" class="navbar-brand">Medical SAAS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="{% url 'home' %}" class="nav-link{% if request.resolver_match.view_name == 'home' %} active{% endif %}">Home</a>
+                        <a href="{% url 'blog-home' %}" class="nav-link{% if request.resolver_match.view_name == 'home' %} active{% endif %}">Home</a>
                     </li>
                     {% if user1.is_authenticated %}
                     <li class="nav-item" data-turbolinks="false">

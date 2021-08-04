@@ -1,22 +1,135 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+    <title>EMA Medicine Search</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   
+  
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montez&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    
     <style>
+           body,p,div,input,textarea{
+	
+	font-family: 'Open Sans', sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6,a,ul,li{
+	font-family: 'Montserrat', sans-serif;
+  }
+        body {
+          
+             font-family: Arial;
+             text-align: center;
+
+        }
+        header {
+        padding: 30px;
+        text-align: center;
+        background-color: #5f788a;
+        color: rgb(226, 217, 217);
+        font-size: 15px;
+        }
+
+        .button {
+        background-color:#66CDAA;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+        input,
+        input::-webkit-input-placeholder {
+        font-size: 15px;
+        line-height: 3;
+        width: 400px;
+        padding: 0 20px;
+         }
+
+        * {
+            box-sizing: border-box;
+        }
+        table {
+           border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            text-align: justify;
+        }
+        table {
+            width: 100%;
+        }
+
+        th {
+          height: 50px;
+        }
+        th {
+          text-align: left;
+        }
+        td {
+          height: 50px;
+          vertical-align: bottom;
+        }
+        tr:hover {background-color: #f5f5f5;}
+        th {
+          background-color: #008080;
+          color: white;
+        }
+        th, td {
+          padding: 8px;
+        }
+        th {
+           text-transform: uppercase;
+        }
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+        }
         body {
              font-family: Arial;
              text-align: center;
 
         }
-        .header {
+       /* .header {
         padding: 215px;
         text-align: center;
         background: #ffffff;
         color: rgb(255, 255, 255);
         font-size: 30px;
-        }
+        }*/
 
         .button {
-        background-color:#c5ced3;
+        background-color:#6CDAA3;
         border: none;
         color: rgb(5, 5, 5);
         padding: 15px 32px;
@@ -89,36 +202,117 @@
             border-left: none; /* Prevent double borders */
             cursor: pointer;
         }
+        body,p,div,input,textarea{
+	
+	font-family: 'Open Sans', sans-serif;
+  }
+  h1,h2,h3,h4,h5,h6,a,ul,li{
+	font-family: 'Montserrat', sans-serif;
+  }
+
+
+  .jumbotron .container {
+  max-width: 40rem;
+}
     </style>
-    <title>EMA Medicine Search</title>
+    
+  
     <body>
+
+     
+      <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+              <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">AccelScience Blog</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+                        <a class="nav-item nav-link" href="{% url 'blog-contact' %}">Contact Us</a>
+                        <a class="nav-item nav-link" href="{% url 'blog-about' %}">About Us</a>
+                        <a class="nav-item nav-link" href="{% url 'blog-xhome' %}">Main</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" >
+                                Search
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item nav-item nav-link" style="color:#000000;" href="{% url 'index' %}">API search</a>
+                                <a class="dropdown-item nav-item nav-link" style="color:#000000; "href="{% url 'index1' %}">Research Grants</a>
+                                <a class="dropdown-item nav-item nav-link" style="color:#000000;" href="{% url 'index2' %}">TGA Search</a>
+                                <a class="dropdown-item nav-item nav-link" style="color: black;" href="{% url 'index3' %}">EMA Medicine Search</a>
+                              </div>
+                        </li>
+<!--
+    <a class="nav-item nav-link" href="{% url 'index' %}">API search</a>
+                        <a class="nav-item nav-link" href="{% url 'index1' %}">Research Grants</a>
+                        <a class="nav-item nav-link" href="{% url 'index2' %}">TGA Search</a>
+-->
+                    </div>
+                    <!-- Navbar Right Side -->
+                    <div class="navbar-nav">
+                        {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+                        <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                        <a class="nav-item nav-link" href="{% url 'msteams_login' %}" target="_blank">MsTeams</a>
+
+                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a> {% else %}
+                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a> {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+    
+      
+
+    
     {% if record %}
     <table class="table is-fullwidth is-striped is-bordered">
         <h1>EMA Medicine Search</h1>
         <thead>
-        <tr>
-        </tr>
-        </thead>
+          <tr>
+             
+              
+          </tr>
+          </thead>>
         <tbody>
         {% for rec in record %}
         <tr>
-            <th>{{ rec }}</th>           
-        </tr>
+         
+      </tr>
         {% endfor %}
         </tbody>
     </table>
     {% else %}
     <form method="POST">
-        <body style="background-color:#c6e4e7;">
+      <body style="background-color:#fafafa;">
         {% csrf_token %}
-        <div class="header">
-        <img src="https://www.ema.europa.eu/sites/default/themes/ema/framework/images/logo_ema.svg" style="position:fixed; right:370px; bottom:220px; width:630px; height:500px; border:none;" alt="Trulli" width="650" height="300">
-        <h3 style="color:rgb(34, 7, 85);"> Medicines Search</h3>
+
+
+  <div class="container">
+        <img src="https://www.ema.europa.eu/sites/default/themes/ema/framework/images/logo_ema.svg" style="position:top; right:370px; bottom:220px; width:630px; height:50px; border:none;" alt="Trulli" width="650" height="300">
+        <h3 style="color:rgb(34, 7, 85);" >Medicines Search</h3>
         <input type="text" name="ema" placeholder="Type in search term">
         <button class="button" type="submit" >Search</button>
         </div>
         </body>
     </form>
-    {% endif %}    
+    {% endif %}  
+    
+
+      
+    
     </body>
-</head>
+  </head>
+</html>
